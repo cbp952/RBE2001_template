@@ -8,7 +8,7 @@ download:
 
 http://users.wpi.edu/~glipin/.uploads/RBE-arduino.zip
 
-And extract it somewhare on your computer. Run Arduino in the extracted folder.
+And extract it somewhere on your computer. Run Arduino in the extracted folder.
 
 ## Personal Computer install Linux / Mac 
 
@@ -48,7 +48,7 @@ BE SURE TO SELECT PRIVATE!
 If private is not an option, follow these instructions: https://help.github.com/articles/applying-for-a-student-developer-pack/
 
 
-Set the name during the import step as "RBE2001". **Do Not put anything different from that exact string**, Arduino uses directory names to find header files, and this project needs the name to be exactly "RBE2001". Change only if you and your team have all had exprence with Arduino Library develoment.  
+Set the name during the import step as "RBE2001". **Do Not put anything different from that exact string**, Arduino uses directory names to find header files, and this project needs the name to be exactly "RBE2001". Change only if you and your team have all had experience with Arduino Library development.  
 
 ## Add your team mates as collaborators
 
@@ -76,7 +76,7 @@ Search for Sloeber
 
 Install "The Arduino Eclipse IDE named Sloeber" and restart eclipse. 
 
-Set the workspace to Arduino mode. In the upper right hand corner there is a button with a little yellow plus sign, and when you hover over it is says "pen Perspective". Click that button. Select Arduino. 
+Set the workspace to Arduino mode. In the upper right hand corner there is a button with a little yellow plus sign, and when you hover over it, it says "pen Perspective". Click that button. Select Arduino. 
 
 Open the Arduino Preferences:
 ```
@@ -108,7 +108,7 @@ In the browser, Click the clone or download button in your new project and selec
 
 Copy the clone URL.
 
-In Eclipse, right click in the git repositories and select clone. If your URL is still copied in the clip board, Eclipse will autofill most the clone information for the first step. Add your username and password.
+In Eclipse, right click in the git repositories and select clone. If your URL is still copied in the clip board, Eclipse will autofill most of the clone information for the first step. Add your username and password.
 
 Hit next and get to the Branch Selection window, change nothing and hit next.
 
@@ -123,7 +123,7 @@ Hit Finish
 
 ## Open your project and start working
 
-To open the project you will be using Sloeber and the "Linked Example" development model. Your code is set up as a library. your launch file is the .ino, which is found in your projects "examples" directory. 
+To open the project you will be using Sloeber and the "Linked Example" development model. Your code is set up as a library. Your launch file is the .ino, which is found in your project's "examples" directory. 
 
 In Eclipse, Right click in the Project View and select 
 ```
@@ -166,14 +166,14 @@ Expand it and right click on Working Tree and select Add to Index. This loads yo
 
 Finally right click on RBE2001[master]->Commit
 
-Be sure to set the "Author" and "Committer" fields sould both contain the same data like this:
+Be sure to set the "Author" and "Committer" fields, both should contain the same data like this:
 ```
 Kevin Harrington <harrington@wpi.edu>
 ```
 
-Messages should consist of 60 charrectors of short description describing what changed, 2 new lines, then a t least one full sentance describing the justification for the change. If you have more than one fime, only commit one at a time. using the "+" and "-" buttons in the Git Staging section. 
+Messages should consist of 60 charrectors of short description describing what changed, 2 new lines, then at least one full sentence describing the justification for the change. If you have more than one file, only commit one at a time. using the "+" and "-" buttons in the Git Staging section. 
 
-When you have chages to share with your team, first Right click on the repository and select "Pull". Merge any changes your team mates made and published to upstream. Then commit the merge (or commit nothing if the merge was clean) and push your changes to the upstream server.
+When you have changes to share with your team, first Right click on the repository and select "Pull". Merge any changes your team mates made and published to upstream. Then commit the merge (or commit nothing if the merge was clean) and push your changes to the upstream server.
 
 Once you have pushed your changes, be sure to verify that they are on GitHub. On your repository, go to
 ```
@@ -183,19 +183,19 @@ and verify your changes are there.
 
 # Code Structure
 
-Your code for your robot is now set up as what Arduino calls a "Library". Libraries are collections of source code with example uses of that cource code. For your labs, the "examples" directory contains .ino files. The .ion file launched the code and should be as tiny as possible, less than 40 lines total. In general, students shouldn't change the .ino examples. 
+Your code for your robot is now set up as what Arduino calls a "Library". Libraries are collections of source code with example uses of that cource code. For your labs, the "examples" directory contains .ino files. The .ino file launched the code and should be as tiny as possible, less than 40 lines total. In general, students shouldn't change the .ino examples. 
 
 Student code lives entirely in the "RBE2001" folder under libraries in eclipse. You should modify only code in that directory. 
 
 ## .h and .cpp files
 
-Header files, ending in .h, contain function definitions. Executable code nd memory allocations do not belong in here. Class definitions and function definitions do belong in here.
+Header files, ending in .h, contain function definitions. Executable code and memory allocations do not belong in here. Class definitions and function definitions do belong in here.
 
 Source files, ending in .cpp, contain executable code. This is code that will execute or declare memory usage. Class function definitions and method definitions belong in this file.
 
 Naming conventions insist that the .h and .cpp files have the same base name, and that name match the name of the class defined inside. 
 
-SimplePacketComs library is the core communication library to pass data from the Field Controller application and Esp32. Data is passed as a call and response from the application to the Esp32 and back. The call comes in as a UDP packet on port 1865. The response goes back to the host as a responding UDP packet. The first 4 bytes of a command contain an integer representing the command ID. THe next 60 bytes are data. Responses have the same command ID bytes, and data comign from the ESP32 back to the Application.
+SimplePacketComs library is the core communication library to pass data from the Field Controller application and Esp32. Data is passed as a call and response from the application to the Esp32 and back. The call comes in as a UDP packet on port 1865. The response goes back to the host as a responding UDP packet. The first 4 bytes of a command contain an integer representing the command ID. The next 60 bytes are data. Responses have the same command ID bytes, and data coming from the ESP32 back to the Application.
 
 SimplePacketComs library is initialized with: 
 
@@ -216,13 +216,13 @@ loopServer();
 ```
 ## DO Change
 
-MyRobot is the main class that defines your robot. All the code associated with the robot belongs in that class. The name of your robot is defined in this class. ALl memory used by your robot should be declared in the MyRobot class definition, and all robot methods belong in the MyRObot class.
+MyRobot is the main class that defines your robot. All the code associated with the robot belongs in that class. The name of your robot is defined in this class. All memory used by your robot should be declared in the MyRobot class definition, and all robot methods belong in the MyRobot class.
 
 Commands are single function classes that represent one command that comes in from the control application. Each command has a function called 
 ```
 event(float*)
 ```
-that is called by the SimplePacketComs library when that command is recived from the WiFi connection.
+that is called by the SimplePacketComs library when that command is received from the WiFi connection.
 
 
 ## DO NOT Change
@@ -241,7 +241,7 @@ The .ino file, any library besides RBE2001 or sloeber.ino.cpp.
 | upstream Bytes |4 | 0 |
 | Contents upstream |1989 | ---|
 
-Set an E-Stop fault on the robot. No data is transmitted, but the state of the robot should be effected. The robot should freeze all motor functions within a 10ms of receiving this command. 
+Set an E-Stop fault on the robot. No data is transmitted, but the state of the robot should be effected. The robot should freeze all motor functions within 10ms of receiving this command. 
 
 ### Get Status
 | |ID | byte |
@@ -276,7 +276,7 @@ Request the status of the robot. The byte value represents the robot state.
 | upstream Bytes |4 | 0 |
 | Contents upstream |1871 | ---|
 
-Clear all faults on the robot. No data is transmitted, but the state of the robot should be effected. The robot should bring it's self online. 
+Clear all faults on the robot. No data is transmitted, but the state of the robot should be effected. The robot should bring itself online. 
 
 ### Pick Order
 
@@ -303,7 +303,7 @@ An order is placed with the robot. The first 3 values are the pickup material, f
 | upstream Bytes |4 | 4 | 4 | 4 | 4 | 4 | 4 |4 | 4 |
 | Contents upstream |1994 | X Location | Y Location | Z Location | azimuth | elevation | tilt | bounding cylinder radius | bounding cylinder height | 
 
-Request for the position and orentation of the robot. Location is in MM from the loading point in location 0 to the center bottom of the bounding cylinder of the robot. The size of the robot is reported in MM measured in positive values from center bottom of the bounding cylinder that envelops the robot. The center is defined as the turning center of the robot. The radius is the distance to the furthest point on the robot from the turning center. Maximum radius is 100mm. Direction of travil is +X in the robots coordinate frame.
+Request for the position and orentation of the robot. Location is in MM from the loading point in location 0 to the center bottom of the bounding cylinder of the robot. The size of the robot is reported in MM measured in positive values from center bottom of the bounding cylinder that envelops the robot. The center is defined as the turning center of the robot. The radius is the distance to the furthest point on the robot from the turning center. Maximum radius is 100mm. Direction of travel is +X in the robot's coordinate frame.
 
 ### Direct Drive
 | |ID | float |float |float |float |float |float |float |float |
@@ -313,8 +313,8 @@ Request for the position and orentation of the robot. Location is in MM from the
 | upstream Bytes |4 | 4 |
 | Contents upstream |1786  | value from 0-1 to indicate progress on current session  |
 
-This is a command to drive a robot directly. The values represent a relative motion from current location. +X is forward for the robot.Angle values are in degrees and translation values are in Milimeters.  Azimuth values range from -180 to 180 with 0 along the robots X dimention. Elevation values are rotation values from -90 to 90 about the Y dimention with 0 being along the x dimenttion. Tilt values are rotations from -180 to 180 about the X dimention with 0 being aligned with the X-Y plane. 
+This is a command to drive a robot directly. The values represent a relative motion from current location. +X is forward for the robot. Angle values are in degrees and translation values are in millimeters.  Azimuth values range from -180 to 180 with 0 along the robots X dimension. Elevation values are rotation values from -90 to 90 about the Y dimension with 0 being along the x dimension. Tilt values are rotations from -180 to 180 about the X dimension with 0 being aligned with the X-Y plane. 
 
-The session ID is a random integer from 0 - 100000 indicating the current drive command. It will change when the target is updateted. It is used to differentiate between new commands. 
+The session ID is a random integer from 0 - 100000 indicating the current drive command. It will change when the target is updated. It is used to differentiate between new commands. 
 
 The command should return the current progress on the current command ID. 
