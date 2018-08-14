@@ -16,7 +16,7 @@ see: https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/boa
 
 ## Arduino Libraries
 
-Open Arduino and select Sketch->Libraries -> Manage Libraries
+Open Arduino and select Sketch -> Include Library -> Manage Libraries...
 
 Search for and install:
 
